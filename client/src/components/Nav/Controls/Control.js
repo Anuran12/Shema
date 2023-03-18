@@ -6,9 +6,12 @@ import { Link } from 'react-router-dom';
 import Cart from '../../Card/Cart/Cart';
 import { useContext } from 'react';
 import { WishItemsContext } from '../../../Context/WishItemsContext';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Control = () => {
     const wishItems = useContext(WishItemsContext)
+
+    const { loginWithRedirect } = useAuth0();
 
     return ( 
         <div className="control__bar__container">
@@ -19,7 +22,7 @@ const Control = () => {
                     </Link>
                 </div>
                 <div className="control">
-                    <Link to="/wishlist">
+                    <Link onClick={() => loginWithRedirect()}>
                         <Badge badgeContent={wishItems.items.length} color="error">
                             <FavoriteBorderIcon color="black" sx={{ width: '35px'}}/>
                         </Badge>
