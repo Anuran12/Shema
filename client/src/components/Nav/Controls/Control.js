@@ -10,16 +10,27 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Control = () => {
     const wishItems = useContext(WishItemsContext)
-    const { loginWithRedirect } = useAuth0();
+    const { loginWithRedirect, user, isAuthenticated, logout } = useAuth0();
 
     return ( 
         <div className="control__bar__container">
             <div className="controls__container">
+
+            
+                    {isAuthenticated && <p className="user_name">{user.name}</p>}
+                
            
                 <div className="control">
-                    <button className="login-btn" onClick={() => loginWithRedirect()}>
+                    {isAuthenticated ? (
+                        <button className="logout-btn" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                        Log Out
+                      </button>
+                    ) : (
+                        <button className="login-btn" onClick={() => loginWithRedirect()}>
                         <PersonOutlineIcon color="black" size="large" sx={{ width: '35px'}}/>
                     </button>
+                    )}
+                    
                 </div>
                 <div className="control">
                     <Link to="/wishlist">

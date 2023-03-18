@@ -40,4 +40,18 @@
 
 .login-btn {
     border: none;
+    background: transparent;
+}
+.logout-btn {
+    border: none;
+    font-size: small;
+    align-items: self-start;
+    font-weight: bold;
+    background: transparent;
+}
+
+.user_name {
+    padding-top: 20px;
+    font-weight: bold;
+    padding-right: 10px;
 }
