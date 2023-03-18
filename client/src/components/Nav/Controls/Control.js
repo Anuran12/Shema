@@ -10,19 +10,19 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Control = () => {
     const wishItems = useContext(WishItemsContext)
-
     const { loginWithRedirect } = useAuth0();
 
     return ( 
         <div className="control__bar__container">
             <div className="controls__container">
+           
                 <div className="control">
-                    <Link to="/account/login">
+                    <button onClick={() => loginWithRedirect()}>
                         <PersonOutlineIcon color="black" size="large" sx={{ width: '35px'}}/>
-                    </Link>
+                    </button>
                 </div>
                 <div className="control">
-                    <Link onClick={() => loginWithRedirect()}>
+                    <Link to="/wishlist">
                         <Badge badgeContent={wishItems.items.length} color="error">
                             <FavoriteBorderIcon color="black" sx={{ width: '35px'}}/>
                         </Badge>
