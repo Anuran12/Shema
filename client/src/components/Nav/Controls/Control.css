@@ -37,3 +37,7 @@
     background-color: #FFE26E;
     color: black;
 }
+
+.login-btn {
+    border: none;
+}

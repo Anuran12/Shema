@@ -17,7 +17,7 @@ const Control = () => {
             <div className="controls__container">
            
                 <div className="control">
-                    <button onClick={() => loginWithRedirect()}>
+                    <button className="login-btn" onClick={() => loginWithRedirect()}>
                         <PersonOutlineIcon color="black" size="large" sx={{ width: '35px'}}/>
                     </button>
                 </div>
